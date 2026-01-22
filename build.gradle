@@ -1,0 +1,33 @@
+plugins{
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.14'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = '21'
+    modules = ['javafx.base', 'javafx.controls', 'javafx.graphics', 'javafx.fxml', 'javafx.media']
+}
+
+mainClassName = 'jpp.gol.ui.GameOfLife'
+
+processResources {
+    from ('src') {
+        include '**/*.fxml'
+        include '**/*.css'
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['resources']
+        }
+    }
+}
